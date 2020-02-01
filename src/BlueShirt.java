@@ -10,7 +10,7 @@ import java.util.List;
 public class BlueShirt {
     private ArrayList<Customer> customers;
     private ArrayList<Product> products;
-    private String file = ".data/products.txt";
+    private String file = "./data/products.txt";
     public BlueShirt() {
         customers = new ArrayList<>();
         products = new ArrayList<>();
@@ -27,7 +27,7 @@ public class BlueShirt {
     }
 
     public void askAssistance(){
-        System.out.println("Do you need assistance?");
+        System.out.println("Do you need assistance?\nChoose <yes> or <no>.");
     }
 
     public void processAssistance(boolean response){
@@ -39,7 +39,7 @@ public class BlueShirt {
     }
 
     public void askProduct(){
-        System.out.println("What type of product are you looking for?");
+        System.out.println("What type of product are you looking for?\nChoose <camera>, <laptop>, or <cellphone>.");
     }
 
     public ArrayList<Product> processProduct(String answer){
@@ -56,7 +56,7 @@ public class BlueShirt {
                 case LAPTOP:
                     if(answer.equals("laptop"))
                     matchingProducts.add(p);
-                    System.out.println("laptop added");
+//                    System.out.println("laptop added");
                     break;
                 case CELLPHONES:
                     if(answer.equals("cellphone"))
@@ -64,14 +64,18 @@ public class BlueShirt {
                     System.out.println("cell added");
                     break;
                 default:
-                    System.out.println("please choose again");
+                    System.out.println("error");
                     break;
             }
         }
         return matchingProducts;
     }
     public void askPurpose(String t){
-        System.out.println("what are you doing with your " + "t");
+        System.out.println("What are you doing with your " + t + "?\nChoose <student>, <office>, <gamer>, <everyday>");
+    }
+
+    public void askPriceRange() {
+        System.out.println("What's your price range?\nChoose <400-600>\n<600-800>\n<800-1000>\n<100+>");
     }
 
     public ArrayList<Product> processCustomerGroup(ArrayList<Product> productList, String answer){
@@ -88,8 +92,8 @@ public class BlueShirt {
                     if(answer.equals("student"))
                         matchingProducts.add(p);
                     break;
-                case OTHER:
-                    if(answer.equals("other"))
+                case EVERYDAY:
+                    if(answer.equals("everyday"))
                         matchingProducts.add(p);
                     break;
                 default:

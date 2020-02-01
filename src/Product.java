@@ -3,8 +3,8 @@ import com.sun.tools.doclets.internal.toolkit.util.ClassUseMapper;
 enum ProductType{
     CELLPHONES, HOME_APPLIANCES, LAPTOP, CAMERA, OFFICE_SUPPLIES, OTHER;
 }
-enum CustomerGroup{
-    STUDENT, OFFICE, GAMER, OTHER;
+enum CustomerGroup {
+    STUDENT, OFFICE, GAMER, EVERYDAY;
 }
 public class Product {
     ProductType type;
