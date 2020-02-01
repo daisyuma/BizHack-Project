@@ -1,11 +1,13 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         Product product = new Product(ProductType.LAPTOP, 500, CustomerGroup.OFFICE, "MacBookPro");
         BlueShirt blueShirt = new BlueShirt();
+        blueShirt.load();
         blueShirt.addProduct(product);
         blueShirt.askAssistance();
         String answer = scanner.next();

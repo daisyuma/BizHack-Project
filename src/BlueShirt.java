@@ -1,13 +1,16 @@
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BlueShirt {
     private ArrayList<Customer> customers;
     private ArrayList<Product> products;
+    private String file = ".data/products.txt";
     public BlueShirt() {
         customers = new ArrayList<>();
         products = new ArrayList<>();
@@ -96,6 +99,37 @@ public class BlueShirt {
         }
         return matchingProducts;
     }
+
+    public void load() throws IOException {
+        System.out.println(Paths.get(file));
+        List<String> lines = Files.readAllLines(Paths.get(file));
+        for (String line : lines) {
+            ArrayList<String> partsOfLine = splitOnBar(line);
+
+            String type = partsOfLine.get(0);
+            String price = partsOfLine.get(1);
+            String customerGroup = partsOfLine.get(2);
+            String name = partsOfLine.get(3);
+
+            loadProduct(type, price, customerGroup, name);
+        }
+    }
+
+    // EFFECTS: a helper method that splits up words separated by "|"
+    public static ArrayList<String> splitOnBar(String line) {
+        String[] splits = line.split("\\|");
+        return new ArrayList<>(Arrays.asList(splits));
+    }
+
+    public void loadProduct(String type, String price, String customerGroup, String name) {
+        double doublePrice = Double.parseDouble(price);
+        ProductType prodType = ProductType.valueOf(type);
+        CustomerGroup custGrp = CustomerGroup.valueOf(customerGroup);
+        Product product = new Product(prodType, doublePrice, custGrp, name);
+        addProduct(product);
+    }
+
+
 
 //    //EFFECTS: saves User's entries to a file
 //    public void saveProduct() throws IOException {

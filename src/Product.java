@@ -23,6 +23,27 @@ public class Product {
     public void setDescription(String s){
         description = s;
     }
+
+    public void setType(ProductType type) {
+        this.type = type;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setCustomerGroup(CustomerGroup customerGroup) {
+        this.customerGroup = customerGroup;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public double getPrice(){
         return this.price;
     }
@@ -42,6 +63,8 @@ public class Product {
     public String customerGroup(){
         return "";  //stub
     }
+
+
 
 
     //REQUIRES: percentage is positive
