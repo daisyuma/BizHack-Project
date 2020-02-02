@@ -30,19 +30,11 @@ public class BlueShirt {
         System.out.println("Do you need assistance?\nChoose <yes> or <no>.");
     }
 
-    public void processAssistance(boolean response){
-        if(response) {
-            askProduct();
-        }else{
-            System.out.println("ok fine");
-        }
-    }
-
     public void askProduct(){
         System.out.println("What type of product are you looking for?\nChoose <camera>, <laptop>, or <cellphone>.");
     }
 
-    public ArrayList<Product> processProduct(String answer){
+    public ArrayList<Product> filterProduct(String answer){
         ArrayList<Product> matchingProducts = new ArrayList<>();
         for(Product p : products){
             ProductType type = p.getType();
@@ -78,7 +70,7 @@ public class BlueShirt {
         System.out.println("What's your price range?\nChoose <400-600>\n<600-800>\n<800-1000>\n<100+>");
     }
 
-    public ArrayList<Product> processCustomerGroup(ArrayList<Product> productList, String answer){
+    public ArrayList<Product> filterCustomerGroup(ArrayList<Product> productList, String answer){
         ArrayList<Product> matchingProducts = new ArrayList<>();
         for(Product p : productList){
             CustomerGroup group = p.getCustomerGroup();
@@ -96,12 +88,35 @@ public class BlueShirt {
                     if(answer.equals("everyday"))
                         matchingProducts.add(p);
                     break;
+                case GAMER:
+                    if(answer.equals("game"))
+                        matchingProducts.add(p);
                 default:
                     System.out.println("please choose again");
                     break;
             }
         }
         return matchingProducts;
+    }
+
+    public ArrayList<Product> filterPrice(ArrayList<Product> list, double priceRange){
+        ArrayList<Product> matchingProducts = new ArrayList<>();
+        for(Product p:list){
+            double price = p.getPrice();
+            if(priceRange<price){
+                matchingProducts.add(p);
+            }
+        }
+        return matchingProducts;
+    }
+
+    public void presentProductChoice(ArrayList<Product> list){
+        for(Product p:list){
+            String name = p.getName();
+            double price = p.getPrice();
+            String description = p.getDescription();
+            System.out.println("we recommend" + name + " ; " + price + " $ " + " ; " + description);
+        }
     }
 
     public void load() throws IOException {

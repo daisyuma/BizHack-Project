@@ -40,9 +40,6 @@ public class Product {
         this.customerGroup = customerGroup;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
     public double getPrice(){
         return this.price;
@@ -60,8 +57,8 @@ public class Product {
         return customerGroup;
     }
 
-    public String customerGroup(){
-        return "";  //stub
+    public String getDescription(){
+        return description;
     }
 
 
