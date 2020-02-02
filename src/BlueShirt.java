@@ -1,13 +1,9 @@
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 
 public class BlueShirt {
     private ArrayList<Customer> customers;
     private ArrayList<Product> products;
+
     public BlueShirt() {
         customers = new ArrayList<>();
         products = new ArrayList<>();
@@ -27,19 +23,11 @@ public class BlueShirt {
         System.out.println("Do you need assistance?");
     }
 
-    public void processAssistance(boolean response){
-        if(response) {
-            askProduct();
-        }else{
-            System.out.println("ok fine");
-        }
-    }
-
     public void askProduct(){
         System.out.println("What type of product are you looking for?");
     }
 
-    public ArrayList<Product> processProduct(String answer){
+    public ArrayList<Product> filterProduct(String answer){
         ArrayList<Product> matchingProducts = new ArrayList<>();
         for(Product p : products){
             ProductType type = p.getType();
@@ -67,11 +55,11 @@ public class BlueShirt {
         }
         return matchingProducts;
     }
-    public void askPurpose(String t){
-        System.out.println("what are you doing with your " + "t");
+    public void askPurpose(String product){
+        System.out.println("what are you doing with your " + product);
     }
 
-    public ArrayList<Product> processCustomerGroup(ArrayList<Product> productList, String answer){
+    public ArrayList<Product> filterCustomerGroup(ArrayList<Product> productList, String answer){
         ArrayList<Product> matchingProducts = new ArrayList<>();
         for(Product p : productList){
             CustomerGroup group = p.getCustomerGroup();
@@ -85,10 +73,13 @@ public class BlueShirt {
                     if(answer.equals("student"))
                         matchingProducts.add(p);
                     break;
-                case OTHER:
+                case RELAX:
                     if(answer.equals("other"))
                         matchingProducts.add(p);
                     break;
+                case GAMER:
+                    if(answer.equals("relax"))
+                        matchingProducts.add(p);
                 default:
                     System.out.println("please choose again");
                     break;
@@ -97,54 +88,24 @@ public class BlueShirt {
         return matchingProducts;
     }
 
-//    //EFFECTS: saves User's entries to a file
-//    public void saveProduct() throws IOException {
-//        List<String> lines = Files.readAllLines(Paths.get("./data/outputfile.txt"));
-//        for (Product product : products) {
-//            String name = product.getName();
-//            CustomerGroup group = product.getCustomerGroup();
-//            double price = product.getPrice();
-//            ProductType type = product.getType();
-//            lines.add(name + ";" + group + ";" + price + ";" + type);
-//            PrintWriter writer = new PrintWriter("./data/outputfile.txt", "UTF-8");
-//            for (String line : lines) {
-//                writer.println(line);
-//            }
-//            writer.close(); //note -- if you miss this, the file will not be written at all.
-//        }
-//    }
-//
-//
-//    //MODIFIES:this
-//    //EFFECTS: load all entries back the entries field of this
-//    public User loadProduct() throws IOException {
-//        List<String> lines = Files.readAllLines(Paths.get("./data/outputfile.txt"));
-//        User myUser = new User();
-//        for (String line : lines) {
-//            ArrayList<String> partsOfLine = splitOnFirstSpace(line);
-//            HealthyEntry entry = new HealthyEntry();
-//            String goal = (partsOfLine.get(0));
-//            String journal = (partsOfLine.get(1));
-//            try {
-//                entry.setGoal(goal);
-//                entry.setJournal(journal);
-//            } catch (InvalidInputException e) {
-//                System.out.println("An InvalidInputException is found in the file");
-//            }
-//            myUser.addEntry(entry);
-//        }
-//        return myUser;
-//    }
-//
-//
-//    //EFFECTS: split a string on the first space encountered by cursor and stores substrings in a collection
-//    private static ArrayList<String> splitOnFirstSpace(String line) {
-//        ArrayList<String> splitOnFirstSpace = new ArrayList<>();
-//        int i = line.indexOf(" ");
-//        String goal = line.substring(0, i);
-//        String entry = line.substring(i++);
-//        splitOnFirstSpace.add(goal);
-//        splitOnFirstSpace.add(entry);
-//        return splitOnFirstSpace;
-//    }
+    public ArrayList<Product> filterPrice(ArrayList<Product> list, double priceRange){
+        ArrayList<Product> matchingProducts = new ArrayList<>();
+        for(Product p:list){
+            double price = p.getPrice();
+            if(priceRange<price){
+                matchingProducts.add(p);
+            }
+        }
+        return matchingProducts;
+    }
+
+    public void presentProductChoice(ArrayList<Product> list){
+        for(Product p:list){
+            String name = p.getName();
+            double price = p.getPrice();
+            String description = p.getDescription();
+            System.out.println("we recommend" + name + " ; " + price + " $ " + " ; " + description);
+        }
+    }
+
 }

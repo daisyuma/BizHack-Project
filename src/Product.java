@@ -4,7 +4,7 @@ enum ProductType{
     CELLPHONES, HOME_APPLIANCES, LAPTOP, CAMERA, OFFICE_SUPPLIES, OTHER;
 }
 enum CustomerGroup{
-    STUDENT, OFFICE, GAMER, OTHER;
+    STUDENT, OFFICE, GAMER, RELAX;
 }
 public class Product {
     ProductType type;
@@ -39,8 +39,8 @@ public class Product {
         return customerGroup;
     }
 
-    public String customerGroup(){
-        return "";  //stub
+    public String getDescription(){
+        return description;
     }
 
 
