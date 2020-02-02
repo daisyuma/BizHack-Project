@@ -37,6 +37,6 @@ public class ChoosePurposeBox {
         Scene scene = new Scene(layout, 200, 200);
         window.setScene(scene);
         window.showAndWait();
-        return answer;
+        return answer; //
     }
 }
