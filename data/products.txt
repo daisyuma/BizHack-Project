@@ -1,0 +1,15 @@
+LAPTOP|499.99|STUDENT|HP 15.6" Laptop - Silver (Intel Core i3-1005G1/256GB SSD/8GB RAM/Windows 10)
+LAPTOP|799.99|OFFICE|Lenovo Yoga 730 15.6" 2-in-1 Laptop (i5/256GB SSD/12GB RAM) w/ Office, 1TB External HDD & Google Home Mini
+LAPTOP|649.99|OFFICE|Dell 15.6" Touchscreen Laptop - Black (Intel Core i3-8130U/128GB SSD/8GB RAM/Windows 10)
+LAPTOP|749.99|EVERYDAY|ASUS ZenBook 14" Laptop - Silver Blue Metal (AMD Quad Core R5-3500U/512GB SSD/8GB RAM) - Open Box
+LAPTOP|999.99|STUDENT|Apple MacBook 12" Laptop w/ Retina (Intel Core m3 1.2GHz / 256GB SSD / 8GB RAM)
+LAPTOP|849.99|STUDENT|Dell 14" Touchscreen 2-in-1 Laptop - Silver (Intel Core i5-8265U/256GB SSD/8GB RAM/Windows 10)
+LAPTOP|999.99|STUDENT|Apple MacBook 12" w/ Retina - Gold (Intel Core m3 1.2GHz / 256GB SSD / 8GB RAM)
+LAPTOP|959.99|GAMER|ASUS 15.6" Gaming Laptop - Black (Intel Core i7-8750H/1TB SSHD/12GB RAM/NVIDIA GTX 1050/Windows 10)
+LAPTOP|999.99|GAMER|ASUS ROG Strix G 15.6" Gaming Laptop (Intel Core i5-9300H/512GB SSD/8GB RAM/NVIDIA GeForce GTX 1650)
+LAPTOP|1099.99|GAMER|Acer 15.6" Gaming Laptop (Intel Core i7-9750H/512GB SSD/8GB RAM/Nvidia GTX 1650/Windows 10)
+LAPTOP|1799.99|GAMER|ASUS Zephyrus M Thin 15.6" Gaming Laptop (Intel Core i7-9750H/512GB SSD/16GB RAM/NVIDIA GTX 1660Ti)
+LAPTOP|1399.99|GAMER|HP Pavilion 15.6" Gaming Laptop (Intel Core i5-9300H/512GB SSD/16GB RAM/GeForce GTX 1650)
+LAPTOP|899.99|GAMER|Dell G3 15.6" Gaming Laptop (Intel Core i5-9300H/1TB HDD/8GB RAM/NVIDIA GTX 1050/Windows 10)
+LAPTOP|1229.00|STUDENT|Lenovo ThinkPad E590 15.6" Laptop (8th Gen Intel Core i5/16GB RAM/1TB SSD/Win 10 Pro)
+LAPTOP|1199.99|EVERYDAY|Apple MacBook Air 13.3" (Intel Core i5 1.8 GHz/ 128GB SSD/ 8GB RAM)
