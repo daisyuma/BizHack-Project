@@ -74,11 +74,11 @@ public class BlueShirt {
                         matchingProducts.add(p);
                     break;
                 case RELAX:
-                    if(answer.equals("other"))
+                    if(answer.equals("relax"))
                         matchingProducts.add(p);
                     break;
                 case GAMER:
-                    if(answer.equals("relax"))
+                    if(answer.equals("game"))
                         matchingProducts.add(p);
                 default:
                     System.out.println("please choose again");

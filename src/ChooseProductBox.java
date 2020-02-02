@@ -17,6 +17,7 @@ public class ChooseProductBox {
         label.setText("What kind of product are you looking for");
         Button laptopButton = new Button("Laptop");
         Button cameraButton = new Button("Camera");
+        Button cellPhoneButton = new Button("Cell Phone");
         laptopButton.setOnAction(e-> {
             answer = "laptop";
             window.close();
@@ -25,8 +26,12 @@ public class ChooseProductBox {
             answer = "camera";
             window.close();
         });
+        cellPhoneButton.setOnAction(e-> {
+            answer = "cellphone";
+            window.close();
+        });
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(label, laptopButton, cameraButton);
+        layout.getChildren().addAll(label, laptopButton, cameraButton, cellPhoneButton);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout, 200, 200);
         window.setScene(scene);

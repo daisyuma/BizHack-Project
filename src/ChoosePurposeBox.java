@@ -17,6 +17,7 @@ public class ChoosePurposeBox {
         label.setText("What's your purpose");
         Button relaxButton = new Button("Relax");
         Button workButton = new Button("Office");
+        Button gameButton = new Button("Game");
         relaxButton.setOnAction(e-> {
             answer = "relax";
             window.close();
@@ -25,6 +26,11 @@ public class ChoosePurposeBox {
             answer = "office";
             window.close();
         });
+        gameButton.setOnAction(e->{
+            answer = "game";
+            window.close();
+                }
+                );
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label, relaxButton, workButton);
         layout.setAlignment(Pos.CENTER);

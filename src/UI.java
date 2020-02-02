@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,26 +30,21 @@ public class UI extends Application{
         Product product = new Product(ProductType.LAPTOP, 500, CustomerGroup.OFFICE, "MacBookPro");
         blueShirt.addProduct(product);  //change it to load product
         window = primaryStage;
-        Label label = new Label("Welcome to BestBuy");
+        Label label = new Label("Welcome to BestBuy, do you need assistance");
         window.setTitle("BestBuy");
         yesButton = new Button("yes");
-        productButton = new Button("product");
         VBox layout = new VBox(20);
-        VBox layout2 = new VBox(20);
-        layout2.getChildren().add(productButton);
-        layout2.getChildren().add(text);
-        layout.getChildren().addAll(yesButton,label);
+        layout.setAlignment(Pos.CENTER);
+        layout.getChildren().addAll(label,yesButton);
         yesButton.setOnAction(e -> {
             String answer = ChooseProductBox.display();
             ArrayList<Product> list1 = blueShirt.filterProduct(answer);
             String answer2 = ChoosePurposeBox.display();
             ArrayList<Product> list2 = blueShirt.filterCustomerGroup(list1,answer2);
-            blueShirt.presentProductChoice(list2);
+            ProductSuggestionBox.displayProductChoice(list2);
         }
         );
         scene1 = new Scene(layout, 200, 200);
-        scene2 = new Scene(layout2, 200, 200);
-
         window.setScene(scene1); //use this scene for our main programme
         window.show(); //display to the user
 
